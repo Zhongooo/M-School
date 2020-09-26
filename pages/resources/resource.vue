@@ -1,4 +1,7 @@
 <template>
+	<view>
+		wow
+	</view>
 </template>
 
 <script>

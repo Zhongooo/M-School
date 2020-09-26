@@ -1,0 +1,23 @@
+{
+  "name": "M-School",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zhongooo/M-School.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zhongooo/M-School/issues"
+  },
+  "homepage": "https://github.com/Zhongooo/M-School#readme",
+  "dependencies": {
+    "axios": "^0.20.0"
+  }
+}
