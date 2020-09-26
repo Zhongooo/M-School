@@ -1,31 +1,17 @@
 <template>
 	<view class="content">
 		<indexHeader></indexHeader>
-		<view class="msg">
+		<view class="friends" v-for="(item,index) in friends" :key="item.id">
 			<view class="pic">
-				<image src="../../static/picture/pic1.jpg"></image>
+				<image :src="`../../static/picture/${item.imgUrl}`"></image>
 			</view>
 			<view class="main">
 				<view class="textTop">
-					<view class="friendName">美乐蒂</view>
-					<view class="times">中午13:14</view>
+					<view class="friendName">{{item.friendName}}</view>
+					<view class="times">{{getTime(item.times)}}</view>
 				</view>
 				<view class="textBottom">
-					wowwowwowwowwowwowwowwowwwow
-				</view>
-			</view>
-		</view>
-		<view class="msg">
-			<view class="pic">
-				<image src="../../static/picture/haha.png"></image>
-			</view>
-			<view class="main">
-				<view class="textTop">
-					<view class="friendName">靓丽美女</view>
-					<view class="times">上午05:20</view>
-				</view>
-				<view class="textBottom">
-					Good Morning!!
+					{{item.msg}}
 				</view>
 			</view>
 		</view>
@@ -34,30 +20,39 @@
 
 <script>
 	import indexHeader from '../../components/header/indexHeader.vue'
+	import datas from '../../commom/js/datas.js'
+	import momentDate from '../../commom/js/myTime.js'
 	export default {
 		data() {
 			return {
-				title: 'Hello'
+				title: 'Hello',
+				friends: []
 			}
 		},
 		components:{
 			indexHeader,
 		},
 		onLoad() {
-
+			this.getDatas();
 		},
 		methods: {
+			getTime (dateTime){
+				return momentDate.dateTime(dateTime);
+			},
 			jump() {
 				uni.navigateTo({
 					url:"../resources/resource"
 				})
+			},
+			getDatas() {
+				this.friends=datas.friends();
 			}
 		}
 	}
 </script>
 
 <style lang="scss">
-		.msg {
+		.friends {
 			display: flex;
 			width: 750rpx;
 			.pic {	
